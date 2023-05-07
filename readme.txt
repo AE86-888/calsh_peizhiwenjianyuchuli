@@ -1,5 +1,1 @@
-Git is a version control system.
-Git is free software.
-修改后在提交
-append GPL
-hello git
+clash for windows自用配置文件预处理代码

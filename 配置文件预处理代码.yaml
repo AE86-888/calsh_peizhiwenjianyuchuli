@@ -1,0 +1,19 @@
+parsers:
+  - url: (填写机场订阅的clash链接)
+    yaml:
+      prepend-proxy-groups:
+      - name: 🔰 选择节点
+        type: select
+        proxies:
+          - DIRECT
+      - name: 🪜 自动选择
+        type: url-test
+        url: "http://www.gstatic.com/generate_204"
+        interval: 600
+        proxies:
+      commands:
+        #- proxy-groups.1.proxies.DIRECT- # 删除DIRECT节点
+        - proxy-groups.1.proxies=[]proxyNames # 将 配置文件中 原🔰 选择节点 的proxies赋值给 自动选择 中的proxies
+        - proxy-groups.2- # 删除原来的 🔰 选择节点
+        - proxy-groups.0.proxies.0+[]proxyNames
+        - proxy-groups.0.proxies.0+🪜 自动选择
